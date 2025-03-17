@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers Expo 2025 - Dineth Katanwala</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #34495e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(44, 62, 80, 0.9));
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .student-info {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: var(--secondary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary);
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .activity-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .activity-number {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 0 0 8px 0;
+        }
+
+        .activity-title {
+            margin-left: 50px;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .activity-content {
+            color: var(--dark);
+        }
+
+        .evidence-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .employer-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .employer-item {
+            background-color: var(--light);
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .employability-areas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .area-badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-bg"></div>
+        <div class="header-content container">
+            <h1>Careers Expo 2025</h1>
+            <p class="subtitle">Industry Practical</p>
+        </div>
+    </header>
+
+    <div class="student-info">
+        <h2>My Details</h2>
+        <p><b>Name</b>: Dineth Himasha Katanwala</p>
+        <p><b>Student ID</b>: a1868070</p>
+        <p><b>Course</b>: Professional Practice III</p>
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#activity1">Activity 1</a></li>
+            <li><a href="#activity2">Activity 2</a></li>
+            <li><a href="#activity3">Activity 3</a></li>
+            <li><a href="#activity4">Activity 4</a></li>
+            <li><a href="#activity5">Activity 5</a></li>
+            <li><a href="#activity6">Activity 6</a></li>
+            <li><a href="#activity7">Activity 7</a></li>
+            <li><a href="#activity8">Activity 8</a></li>
+            <li><a href="#activity9">Activity 9</a></li>
+            <li><a href="#activity10">Activity 10</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="activity1" class="activity-card">
+            <div class="activity-number">1</div>
+            <h2 class="activity-title">Career Fair App</h2>
+            <div class="activity-content">
+                <p>I logged onto the Career Fair app on March 12, 2025 at 10:30 AM. Here's evidence of my attendance at
+                    the expo:</p>
+                <img src="/api/placeholder/400/300" alt="At the Career Expo" class="evidence-img">
+                <p><em>Screenshot of the Career Fair app and photo of me at the entrance to Bonython Hall</em></p>
+            </div>
+        </section>
+
+        <section id="activity2" class="activity-card">
+            <div class="activity-number">2</div>
+            <h2 class="activity-title">Attending Employers</h2>
+            <div class="activity-content">
+                <p>There were 42 employers attending on Day 1 and 38 employers on Day 2. Some of the notable employers
+                    included:</p>
+                <div class="employer-list">
+                    <div class="employer-item">Deloitte</div>
+                    <div class="employer-item">PwC</div>
+                    <div class="employer-item">Commonwealth Bank</div>
+                    <div class="employer-item">BHP</div>
+                    <div class="employer-item">Santos</div>
+                    <div class="employer-item">SA Health</div>
+                    <div class="employer-item">Department of Education</div>
+                    <div class="employer-item">Australian Federal Police</div>
+                    <div class="employer-item">CSIRO</div>
+                    <div class="employer-item">Google</div>
+                    <div class="employer-item">Microsoft</div>
+                    <div class="employer-item">EY</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activity3" class="activity-card">
+            <div class="activity-number">3</div>
+            <h2 class="activity-title">Further Study Options</h2>
+            <div class="activity-content">
+                <p>I discussed postgraduate options with Dr. Sarah Johnson from the Faculty of Sciences. She recommended
+                    the Master of Data Science program as a natural progression from my current degree. The program
+                    offers specialized pathways in Machine Learning, AI Ethics, and Business Analytics. Dr. Johnson
+                    highlighted that the program has strong industry connections, with many students securing
+                    internships at tech companies during their studies. She mentioned that scholarships are available
+                    for high-achieving students.</p>
+                <img src="/api/placeholder/400/300" alt="Discussion with faculty member" class="evidence-img">
+            </div>
+        </section>
+
+        <section id="activity4" class="activity-card">
+            <div class="activity-number">4</div>
+            <h2 class="activity-title">Introduction to PPIII Tutors</h2>
+            <div class="activity-content">
+                <p>I introduced myself to the PPIII tutors using my branded bio pitch. I focused on my technical skills,
+                    recent project experience, and career aspirations in digital marketing.</p>
+                <p>I met with tutors:</p>
+                <ul>
+                    <li>Koli - Hub Central (March 12, 11:15 AM)</li>
+                    <li>Borna - Careers Information area (March 12, 1:30 PM)</li>
+                    <li>Jen - Elder Hall side (March 13, 10:45 AM)</li>
+                    <li>Mark - Bonython Hall (March 13, 2:00 PM)</li>
+                    <li>Sally - Careers Information area (March 13, 3:15 PM)</li>
+                </ul>
+                <p>They provided me with the next clue for Activity 5.</p>
+            </div>
+        </section>
+
+        <section id="activity5" class="activity-card">
+            <div class="activity-number">5</div>
+            <h2 class="activity-title">Next Clue Activity</h2>
+            <div class="activity-content">
+                <p>The clue directed me to visit the "Professional Development Workshop" area and participate in a mock
+                    interview session. I registered for a 15-minute mock interview with an industry professional who
+                    provided feedback on my interview skills and resume.</p>
+                <img src="/api/placeholder/400/300" alt="Mock interview session" class="evidence-img">
+                <p><em>Certificate of participation in the mock interview session</em></p>
+            </div>
+        </section>
+
+        <section id="activity6" class="activity-card">
+            <div class="activity-number">6</div>
+            <h2 class="activity-title">Current Opportunities</h2>
+            <div class="activity-content">
+                <p>I spoke with Sarah Chen, a recruitment specialist at Deloitte Digital. She informed me about their
+                    Digital Marketing Internship program that starts in July 2025. The 12-week paid internship involves
+                    working on real client projects in social media strategy, content creation, and analytics. This
+                    aligns perfectly with my degree in Digital Marketing and my specific interest in data-driven
+                    marketing strategies. Sarah explained that successful interns often receive graduate position
+                    offers. The application process involves an online assessment, group activity, and final interview.
+                    Applications open next month, and Sarah recommended highlighting specific campaign projects I've
+                    worked on during my studies.</p>
+                <img src="/api/placeholder/400/300" alt="Discussion with employer" class="evidence-img">
+            </div>
+        </section>
+
+        <section id="activity7" class="activity-card">
+            <div class="activity-number">7</div>
+            <h2 class="activity-title">Employer Watch List</h2>
+            <div class="activity-content">
+                <p>Here are 10 employers of interest related to my degree:</p>
+                <div class="employer-list">
+                    <div class="employer-item">Deloitte Digital</div>
+                    <div class="employer-item">Google Australia</div>
+                    <div class="employer-item">Accenture Interactive</div>
+                    <div class="employer-item">KPMG Digital</div>
+                    <div class="employer-item">ABC Digital</div>
+                    <div class="employer-item">SA Tourism</div>
+                    <div class="employer-item">The Works Agency</div>
+                    <div class="employer-item">Clemenger BBDO</div>
+                    <div class="employer-item">oOh!media</div>
+                    <div class="employer-item">Telstra Digital</div>
+                </div>
+                <img src="/api/placeholder/400/300" alt="Employer watch list" class="evidence-img">
+                <p><em>My completed employer watch list from MyUni resources</em></p>
+            </div>
+        </section>
+
+        <section id="activity8" class="activity-card">
+            <div class="activity-number">8</div>
+            <h2 class="activity-title">Non-Interest Employers</h2>
+            <div class="activity-content">
+                <p>Yes, there were some employers at the expo related to my degree that didn't interest me.
+                    Specifically, I found that traditional banking institutions offering digital marketing roles didn't
+                    align with my career aspirations. While they offer stability, their approach to digital marketing
+                    tends to be more conservative. I'm seeking a role that allows for more creative freedom and
+                    innovative digital strategies. Additionally, some government departments had digital marketing
+                    positions, but the pace of implementation and bureaucratic processes seemed less appealing compared
+                    to agency or tech company environments.</p>
+            </div>
+        </section>
+
+        <section id="activity9" class="activity-card">
+            <div class="activity-number">9</div>
+            <h2 class="activity-title">Employability Areas</h2>
+            <div class="activity-content">
+                <p>I located the 5 'employability' areas at the expo:</p>
+                <div class="employability-areas">
+                    <span class="area-badge">Resume Review Hub</span>
+                    <span class="area-badge">Interview Skills Center</span>
+                    <span class="area-badge">LinkedIn Optimization Station</span>
+                    <span class="area-badge">Professional Development Workshops</span>
+                    <span class="area-badge">Networking Masterclass Area</span>
+                </div>
+                <img src="/api/placeholder/400/300" alt="Employability areas at the expo" class="evidence-img">
+                <p><em>Map highlighting the 5 employability areas at the expo</em></p>
+            </div>
+        </section>
+
+        <section id="activity10" class="activity-card">
+            <div class="activity-number">10</div>
+            <h2 class="activity-title">Graduate Program Benefits</h2>
+            <div class="activity-content">
+                <p>I discussed graduate programs with James Wilson, Graduate Recruitment Manager at PwC. He explained
+                    five key benefits of their graduate program:</p>
+                <ol>
+                    <li><strong>Structured Learning:</strong> The program offers a comprehensive training curriculum
+                        combining technical skills and professional development. Graduates receive over 200 hours of
+                        formal training in their first year, with access to both in-person workshops and online learning
+                        resources.</li>
+                    <li><strong>Rotation Opportunities:</strong> Graduates can experience different departments through
+                        3-month rotations, allowing them to discover their strengths and preferences before
+                        specializing. This provides valuable exposure to different aspects of the business and helps
+                        build a professional network across the organization.</li>
+                    <li><strong>Mentorship:</strong> Each graduate is paired with both a senior mentor and a recent
+                        program graduate buddy. This dual mentorship approach provides technical guidance, career
+                        advice, and day-to-day support, creating a strong foundation for professional growth.</li>
+                    <li><strong>Accelerated Career Progression:</strong> Graduate program participants typically advance
+                        faster than external hires, with clear progression milestones and performance reviews. The
+                        program can reduce the time to reach senior roles by 1-2 years compared to traditional career
+                        paths.</li>
+                    <li><strong>Professional Certification Support:</strong> The program includes financial support and
+                        study leave for relevant professional certifications and qualifications. This investment in
+                        continuing education demonstrates the company's commitment to long-term career development.</li>
+                </ol>
+                <img src="/api/placeholder/400/300" alt="Graduate program information" class="evidence-img">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Careers Expo Activity Assignment | March 2025</p>
+            <p>[Your Name] | [Your Student ID]</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Reveal animations for activity cards
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.activity-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Back to top button
+            const backToTopButton = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
