@@ -461,7 +461,6 @@
     <a href="#" class="back-to-top">↑</a>
 
     <script>
-        // Reveal animations for activity cards
         document.addEventListener('DOMContentLoaded', function () {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -475,7 +474,6 @@
                 observer.observe(card);
             });
 
-            // Back to top button
             const backToTopButton = document.querySelector('.back-to-top');
 
             window.addEventListener('scroll', () => {
@@ -491,7 +489,6 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Smooth scroll for navigation links
             document.querySelectorAll('nav a').forEach(link => {
                 link.addEventListener('click', e => {
                     e.preventDefault();
